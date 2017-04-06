@@ -1,45 +1,47 @@
 <template>
-<div class="goods">   
+  <div class="goods">
     <div class="menu-wrapper" v-el:menu-wrapper>
-    <ul>
+      <ul>
         <li v-for="item in goods" class="menu-item" :class="{'current':currentIndex===$index}" @click="selectMenu($index,$event)">
-            <span class="text border-1px">
+          <span class="text border-1px">
             <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
-            </span>
+          </span>
         </li>
-    </ul>
+      </ul>
     </div>
     <div class="food-wrapper" v-el:foods-wrapper>
-        <ul>
-            <li v-for="item in goods" class="food-list food-list-hook">
-                <h1 class="title">{{item.name}}</h1>
-                <ul>
-                    <li v-for="food in item.foods" class="food-item border-1px">
-                        <div class="icon">
-                            <img :src="food.icon" width="57" height="57">
-                        </div>
-                        <div class="content">
-                            <h2 class="name">{{food.name}}</h2>
-                            <p class="desc">{{food.description}}</p>
-                            <div class="extra">
-                                <span class="count">月售{{food.sellCount}}份</span>
-                                <span>好评率{{food.rating}}%</span>
-                            </div>
-                            <div class="price">
-                            <span class="now">￥{{food.price}}</span><span v-show="food.oldPrice" class="old">￥{{food.oldPrice}}</span>
-                            </div>
-                            <div class="cartcontrol-wrapper">
-                              <cartcontrol :food="food"></cartcontrol>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+      <ul>
+        <li v-for="item in goods" class="food-list food-list-hook">
+          <h1 class="title">{{item.name}}</h1>
+          <ul>
+            <li @click="selectFood(food,$event)" v-for="food in item.foods" class="food-item border-1px">
+              <div class="icon">
+                <img :src="food.icon" width="57" height="57">
+              </div>
+              <div class="content">
+                <h2 class="name">{{food.name}}</h2>
+                <p class="desc">{{food.description}}</p>
+                <div class="extra">
+                  <span class="count">月售{{food.sellCount}}份</span>
+                  <span>好评率{{food.rating}}%</span>
+                </div>
+                <div class="price">
+                  <span class="now">￥{{food.price}}</span><span v-show="food.oldPrice" class="old">￥{{food.oldPrice}}</span>
+                </div>
+                <div class="cartcontrol-wrapper">
+                  <cartcontrol :food="food"></cartcontrol>
+                </div>
+              </div>
             </li>
-        </ul>
+          </ul>
+        </li>
+      </ul>
     </div>
     <shopcart v-ref:shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
-</div>
+  </div>
+  <food :food="selectedFood" v-ref:food></food>
 </template>
+
 
 <script>
 import BScroll from 'better-scroll';
@@ -48,6 +50,7 @@ import shopcart from 'components/shopcart/shopcart';
 
 import cartcontrol from 'components/cartcontrol/cartcontrol';
 
+import food from 'components/food/food';
 const ERR_OK = 0;
 export default {
   props: {
@@ -59,7 +62,8 @@ export default {
     return {
       goods: [],
       listHeight: [],
-      scrollY: 0
+      scrollY: 0,
+      selectedFood: {}
     };
   },
   computed: {
@@ -136,13 +140,22 @@ export default {
     _drop(target) {
       // 优化异步实现下落动画
       this.$nextTick(() => {
-      this.$refs.shopcart.drop(target);
+        this.$refs.shopcart.drop(target);
       });
+    },
+    selectFood(food,event) {
+      if (!event._constructed) {
+        return;
+      }
+      console.log(1);
+      this.selectedFood = food;
+      this.$refs.food.show();
     }
   },
   components: {
     shopcart,
-    cartcontrol
+    cartcontrol,
+    food
   },
   events: {
     'cart.add' (target) {
@@ -150,6 +163,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style lang="scss" rel="stylesheet/scss">

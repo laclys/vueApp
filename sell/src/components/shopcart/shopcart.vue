@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="ball-container">
-      <div transition="drop" v-for="ball in balls" v-show="ball.show">
+      <div transition="drop" v-for="ball in balls" v-show="ball.show" class="ball">
         <div class="inner inner-hook"></div>
       </div>
     </div>
