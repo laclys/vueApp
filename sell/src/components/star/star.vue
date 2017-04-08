@@ -10,23 +10,14 @@
     const CLS_HALF = 'half';
     const CLS_OFF = 'off';
     export default {
-
       props: {
-
         size: {
-
           type: Number
-
         },
-
         score: {
-
           type: Number
-
         }
-
       },
-
       computed: {
         starType() {
           return 'star-' + this.size;
@@ -47,9 +38,7 @@
           }
           return result;
         }
-
       }
-
     };
 
 </script>
@@ -86,7 +75,7 @@
         .star-item {
           width: 15px;
           height: 15px;
-          margin-right: 16px;
+          margin-right: 6px;
           background-size: 15px 15px;
           &:last-child {
             margin-right: 0;
