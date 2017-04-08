@@ -32,4 +32,4 @@ router.map({
 });
 router.start(app, '#app');
 // 刷新后直接到goods页面上，即默认选项
-router.go('/goods');
+// router.go('/goods');
