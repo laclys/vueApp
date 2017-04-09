@@ -1,10 +1,20 @@
-# sell
+# 仿‘饿了么’SPA（VueJs+'Vue-router+Vue-resource+Webpack+ES6+Sass)
 
 > A Vue.js project
+
+Based on VueJs+'Vue-router+Vue-resource+Webpack+ES6+Sass
+
+This project is just for fun and learning Vue.
+
+Still underConstruction
+
 
 ## Build Setup
 
 ``` bash
+# git clone
+git clone https://github.com/laclys/vueApp.git
+
 # install dependencies
 npm install
 
@@ -13,15 +23,24 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Please use chrome mobile device mode
+
+## directory structure
+
+![](./demoPic/demo.jpg)
+
+## Demo images：
+
+![](./demoPic/demo1.jpg)
+
+![](./demoPic/demo2.jpg)
+
+![](./demoPic/demo3.jpg)
+
+![](./demoPic/demo4.jpg)
+
+![](./demoPic/demo5.jpg)
+
+![](./demoPic/demo6.jpg)
