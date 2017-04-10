@@ -1,4 +1,4 @@
-# 仿‘饿了么’SPA（VueJs+'Vue-router+Vue-resource+Webpack+ES6+Sass)
+# 基于Vue的外卖商家SPA（VueJs+'Vue-router+Vue-resource+Webpack+ES6+Sass)
 
 > A Vue.js project
 
