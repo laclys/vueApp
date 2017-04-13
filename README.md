@@ -31,7 +31,7 @@ Please use chrome mobile device mode
 
 ![](./demoPic/demo.jpg)
 
-## Demo images：
+## Demo images
 
 ![](./demoPic/demo1.jpg)
 
@@ -44,3 +44,8 @@ Please use chrome mobile device mode
 ![](./demoPic/demo5.jpg)
 
 ![](./demoPic/demo6.jpg)
+
+## Summary
+
+https://laclys.github.io/2017/04/10/VueJS%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5%E6%80%BB%E7%BB%93/
+
